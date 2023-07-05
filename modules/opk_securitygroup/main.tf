@@ -1,3 +1,12 @@
+terraform {
+required_version = ">= 0.14.0"
+  required_providers {
+    openstack = {
+      source  = "terraform-provider-openstack/openstack"
+      version = "~> 1.51.1"
+    }
+  }
+}
 resource "openstack_compute_secgroup_v2" "http_group" {
   name        = "http_secgroup"
   description = "my security group to get HTTP server"
