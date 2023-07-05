@@ -12,5 +12,5 @@ provider "openstack" {
   user_name   = "admin"
   tenant_name = "admin"
   password    = "xMvLAtOwFyGnwVoT3V96mRZsxaMyxNE8HVQ4G8CJ"
-  auth_url    = "http://${var.ssh_host}:5000/v2.0"
+  auth_url    = "http://${var.ssh_host}:5000"
 }
