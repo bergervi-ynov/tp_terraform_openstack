@@ -15,7 +15,8 @@ resource "null_resource" "ssh_connection_user" {
             "echo 'stack ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/stack",
             "sudo chmod +x /opt/stack",
             "sudo mkdir -p /opt/stack/.ssh",
-            "sudo cp /home/${var.ssh_user}/.ssh/authorized_keys /opt/stack/.ssh/authorized_keys"
+            "sudo cp /home/${var.ssh_user}/.ssh/authorized_keys /opt/stack/.ssh/authorized_keys",
+            "sudo chown stack:stack -R /opt/stack/.ssh"
          ]
     }
 
