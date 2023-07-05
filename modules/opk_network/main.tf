@@ -20,8 +20,8 @@ resource "openstack_networking_subnet_v2" "vm_subnet" {
   enable_dhcp = true
   gateway_ip      = "192.168.1.1"
   allocation_pool {
-    start = "192.168.1.100"
-    end   = "192.168.1.200"
+    start = "192.168.1.2"
+    end   = "192.168.1.15"
   }
   
 }
