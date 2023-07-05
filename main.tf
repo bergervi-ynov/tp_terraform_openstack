@@ -2,30 +2,35 @@ variable "ssh_host" { sensitive = true }
 variable "ssh_user" { sensitive = true }
 variable "ssh_key" { sensitive = true }
 
-# module "os_opk_install" {
-#   source = "./modules/os_opk_install"
-#   ssh_host = var.ssh_host
-#   ssh_key = var.ssh_key
-#   ssh_user = var.ssh_user
-# }
+ module "os_opk_install" {
+   source = "./modules/os_opk_install"
+   ssh_host = var.ssh_host
+   ssh_key = var.ssh_key
+   ssh_user = var.ssh_user
+ }
 
 module "add_image_ubuntu" {
+  depends_on = [ module.os_opk_install ]
   source = "./modules/opk_image"
 }
 
 module "add_network" {
+  depends_on = [ module.os_opk_install ]
   source = "./modules/opk_network"
 }
 
 module "add_secgroup" {
+  depends_on = [ module.os_opk_install ]
   source = "./modules/opk_securitygroup"
 }
 
 module "add_keypair" {
+  depends_on = [ module.os_opk_install ]
   source = "./modules/opk_keypair"
 }
 
 module "add_flavor" {
+  depends_on = [ module.os_opk_install ]
   source = "./modules/opk_flavor"
 }
 
