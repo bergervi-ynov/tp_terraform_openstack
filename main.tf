@@ -41,7 +41,7 @@ module "ubuntu_1" {
 }
 
 module "ubuntu_2" {
-  depends_on = [ module.add_network, module.module.ubuntu_1 ]
+  depends_on = [ module.add_network, module.ubuntu_1 ]
   source               = "./modules/opk_compute"
   compute_name         = "ubuntu"
   compute_flavor_id    = module.add_flavor.ubuntu_flavor_id
