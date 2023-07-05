@@ -30,6 +30,7 @@ module "add_flavor" {
 }
 
 module "ubuntu_1" {
+  depends_on = [ module.add_network ]
   source               = "./modules/opk_compute"
   compute_name         = "ubuntu_web"
   compute_flavor_id    = module.add_flavor.ubuntu_flavor_id
@@ -40,6 +41,7 @@ module "ubuntu_1" {
 }
 
 module "ubuntu_2" {
+  depends_on = [ module.add_network ]
   source               = "./modules/opk_compute"
   compute_name         = "ubuntu"
   compute_flavor_id    = module.add_flavor.ubuntu_flavor_id
