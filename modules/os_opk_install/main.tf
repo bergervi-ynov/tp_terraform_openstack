@@ -9,7 +9,6 @@ resource "null_resource" "ssh_connection_user" {
     # Use a non root user
     provisioner "remote-exec" {
         inline = [ 
-            "sudo apt-get update && sudo apt-get upgrade -y",
             # Following the DevStack Best Practice
             "sudo  useradd -s /bin/bash -d /opt/stack -m stack",
             "echo 'stack ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/stack",
