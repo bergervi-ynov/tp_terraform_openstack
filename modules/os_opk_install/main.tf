@@ -39,7 +39,6 @@ resource "null_resource" "ssh_connection_stack"{
             "sudo git clone https://git.openstack.org/openstack-dev/devstack",
             "sudo chmod 755 /tmp/script.sh && ./tmp/script.sh ",
             "./devstack/stack.sh",
-            "sudo systemctl restart apache2"
          ]
       
     }
