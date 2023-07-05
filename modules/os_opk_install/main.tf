@@ -21,30 +21,30 @@ resource "null_resource" "ssh_connection_user" {
 
 }
 
-resource "null_resource" "ssh_connection_stack"{
-    depends_on = [ null_resource.ssh_connection_user ]
-    connection {
-        type    = "ssh"
-        user    = "stack"
-        host    = var.ssh_host
-        private_key = file(var.ssh_key)
-        }
-    provisioner "file" {
-      source = "${path.module}/script.sh"
-      destination = "/tmp/script.sh"
-    }
-    provisioner "remote-exec" {
-        inline = [ 
-            "sudo apt install git -y",
-            "sudo git clone https://git.openstack.org/openstack-dev/devstack",
-            "sudo chmod 755 /tmp/script.sh && ./tmp/script.sh ",
-            "./devstack/stack.sh",
-            "sudo systemctl restart apache2"
-         ]
+# resource "null_resource" "ssh_connection_stack"{
+#     depends_on = [ null_resource.ssh_connection_user ]
+#     connection {
+#         type    = "ssh"
+#         user    = "stack"
+#         host    = var.ssh_host
+#         private_key = file(var.ssh_key)
+#         }
+#     provisioner "file" {
+#       source = "${path.module}/script.sh"
+#       destination = "/tmp/script.sh"
+#     }
+#     provisioner "remote-exec" {
+#         inline = [ 
+#             "sudo apt install git -y",
+#             "sudo git clone https://git.openstack.org/openstack-dev/devstack",
+#             "sudo chmod 755 /tmp/script.sh && ./tmp/script.sh ",
+#             "./devstack/stack.sh",
+#             "sudo systemctl restart apache2"
+#          ]
       
-    }
+#     }
 
-}
+# }
 
 
 
