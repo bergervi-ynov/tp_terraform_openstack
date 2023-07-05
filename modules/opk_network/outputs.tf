@@ -1,7 +1,7 @@
-output "network" {
-  value = openstack_networking_network_v2.vm_network
+output "network_name" {
+  value = openstack_networking_network_v2.vm_network.name
 }
 
-output "subnet" {
-  value = openstack_networking_subnet_v2.vm_subnet
+output "subnet_name" {
+  value = openstack_networking_subnet_v2.vm_subnet.name
 }

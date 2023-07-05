@@ -15,7 +15,6 @@ variable "compute_key_pair" {
 }
 
 variable "compute_secgroup" {
-  type = tuple([ ])
 }
 
 variable "compute_network_name" {

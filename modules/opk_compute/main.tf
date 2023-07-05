@@ -12,7 +12,7 @@ resource "openstack_compute_instance_v2" "ubuntu_instance" {
   image_id        = var.compute_image_id
   flavor_id       = var.compute_flavor_id
   key_pair        = var.compute_key_pair
-  security_groups = var.compute_secgroup
+  security_groups = ["${var.compute_secgroup}"]
 
   metadata = {
     this = "Ubuntu"

@@ -1,3 +1,3 @@
-output "keypair" {
-  value = openstack_compute_keypair_v2.my-keypair
+output "keypair_name" {
+  value = openstack_compute_keypair_v2.my-keypair.name
 }

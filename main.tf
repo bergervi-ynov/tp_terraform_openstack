@@ -32,19 +32,19 @@ module "add_flavor" {
 module "ubuntu_1" {
   source               = "./modules/opk_compute"
   compute_name         = "ubuntu_web"
-  compute_flavor_id    = module.add_flavor.ubuntu_flavor_object.id
-  compute_image_id     = module.add_image_ubuntu.image.id
-  compute_key_pair     = module.add_keypair.name
-  compute_secgroup     = [module.add_secgroup.name]
-  compute_network_name = module.add_network.name
+  compute_flavor_id    = module.add_flavor.ubuntu_flavor_id
+  compute_image_id     = module.add_image_ubuntu.image_id
+  compute_key_pair     = module.add_keypair.keypair_name
+  compute_secgroup     = module.add_secgroup.secgroup_http_name
+  compute_network_name = module.add_network.network_name
 }
 
 module "ubuntu_2" {
   source               = "./modules/opk_compute"
   compute_name         = "ubuntu"
-  compute_flavor_id    = module.add_flavor.ubuntu_flavor_object.id
-  compute_image_id     = module.add_image_ubuntu.image.id
-  compute_key_pair     = module.add_keypair.name
-  compute_secgroup     = [module.add_secgroup.name]
-  compute_network_name = module.add_network.name
+  compute_flavor_id    = module.add_flavor.ubuntu_flavor_id
+  compute_image_id     = module.add_image_ubuntu.image_id
+  compute_key_pair     = module.add_keypair.keypair_name
+  compute_secgroup     = module.add_secgroup.secgroup_http_name
+  compute_network_name = module.add_network.network_name
 }
