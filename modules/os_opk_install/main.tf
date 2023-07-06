@@ -30,14 +30,14 @@ resource "null_resource" "ssh_connection_stack"{
         private_key = file(var.ssh_key)
         }
     provisioner "file" {
-      source = "${path.module}/script.sh"
-      destination = "/tmp/script.sh"
+      source = "${path.module}/local.conf"
+      destination = "/tmp/local.conf"
     }
     provisioner "remote-exec" {
         inline = [ 
             "sudo apt install git -y",
             "sudo git clone https://git.openstack.org/openstack-dev/devstack",
-            "sudo chmod 755 /tmp/script.sh && ./tmp/script.sh ",
+            "mv /tmp/local.conf /opt/stack/devstack/local.conf",
             "./devstack/stack.sh",
          ]
       
