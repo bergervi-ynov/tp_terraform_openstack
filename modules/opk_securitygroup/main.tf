@@ -36,6 +36,6 @@ resource "openstack_compute_secgroup_v2" "http_group" {
     from_port   = -1
     to_port     = -1
     ip_protocol = "icmp"
-    remote_ip_prefix = "0.0.0.0/0"
+    cidr = "0.0.0.0/0"
   }
 }
