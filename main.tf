@@ -10,27 +10,27 @@ variable "ssh_key" { sensitive = true }
 # }
 
 module "add_image_ubuntu" {
-  depends_on = [module.os_opk_install]
+  #depends_on = [module.os_opk_install]
   source     = "./modules/opk_image"
 }
 
 module "add_network" {
-  depends_on = [module.os_opk_install]
+  #depends_on = [module.os_opk_install]
   source     = "./modules/opk_network"
 }
 
 module "add_secgroup" {
-  depends_on = [module.os_opk_install]
+  #depends_on = [module.os_opk_install]
   source     = "./modules/opk_securitygroup"
 }
 
 module "add_keypair" {
-  depends_on = [module.os_opk_install]
+  #depends_on = [module.os_opk_install]
   source     = "./modules/opk_keypair"
 }
 
 module "add_flavor" {
-  depends_on = [module.os_opk_install]
+  #depends_on = [module.os_opk_install]
   source     = "./modules/opk_flavor"
 }
 
