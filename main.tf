@@ -65,7 +65,7 @@ module "ubuntu_2" {
   compute_image_id     = module.add_image_ubuntu.image_id
   compute_key_pair     = module.add_keypair.keypair_name
   compute_secgroup     = module.add_secgroup.secgroup_http_name
-  compute_network_name = module.add_network.network_name
+  compute_network_name = module.add_network.subnet_name
   compute_ipv4         = "192.168.1.12"
 }
 
