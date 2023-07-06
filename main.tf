@@ -58,12 +58,14 @@ module "ubuntu_2" {
 
 module "ubuntu_1_ip" {
   depends_on = [ module.ubuntu_1 ]
+  source = "./modules/opk_elasticip"
   elastic_compute = module.ubuntu_1.compute_id
   elastic_compute_ip = module.ubuntu_1.compute_ip_id
 }
 
 module "ubuntu_2" {
   depends_on = [ module.ubuntu_2 ]
+  source = "./modules/opk_elasticip"
   elastic_compute = module.ubuntu_2.compute_id
   elastic_compute_ip = module.ubuntu_2.compute_ip_id
 }
