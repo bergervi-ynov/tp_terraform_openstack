@@ -50,6 +50,11 @@ module "ubuntu_1" {
   compute_secgroup     = module.add_secgroup.secgroup_http_name
   compute_network_name = module.add_network.network_name
   compute_ipv4         = "192.168.1.11"
+  compute_userdata = <<-EOF
+    #!/bin/bash
+    apt-get update
+    apt-get install apache2
+  EOF
 }
 
 module "ubuntu_2" {
