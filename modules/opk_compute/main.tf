@@ -20,5 +20,6 @@ resource "openstack_compute_instance_v2" "ubuntu_instance" {
 
   network {
     name = var.compute_network_name
+    fixed_ip_v4 = var.compute_ipv4
   }
 }
