@@ -9,7 +9,7 @@ required_version = ">= 0.14.0"
 }
 
 resource "openstack_networking_floatingip_v2" "floatip" {
-  pool = "public"
+  pool = "public1"
 }
 
 
