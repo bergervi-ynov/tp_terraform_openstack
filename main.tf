@@ -34,6 +34,12 @@ module "add_flavor" {
   source     = "./modules/opk_flavor"
 }
 
+module "add_router" {
+  depends_on = [ module.add_network ]
+  source = "./modules/opk_router"
+  private_subnet_id = module.add_network.subnet_id
+}
+
 module "ubuntu_1" {
   depends_on           = [module.add_network]
   source               = "./modules/opk_compute"

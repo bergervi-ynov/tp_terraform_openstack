@@ -5,3 +5,7 @@ output "network_name" {
 output "subnet_name" {
   value = openstack_networking_subnet_v2.vm_subnet.name
 }
+
+output "subnet_id" {
+  value = openstack_networking_subnet_v2.vm_subnet.id
+}
